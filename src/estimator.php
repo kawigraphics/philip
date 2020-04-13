@@ -264,7 +264,7 @@ function covid19ImpactEstimator($data)
             'hospitalBedsByRequestedTime'        => (int) $hospital_beds_by_requested_time['impact'],
             'casesForICUByRequestedTime'         => (int) $cases_for_icu_by_requested_time['impact'],
             'casesForVentilatorsByRequestedTime' => (int) $cases_for_ventilators_by_requested_time['impact'],
-            'dollarsInFlight'                    => truncate($dollars_in_flight['impact']
+            'dollarsInFlight'                    => $dollars_in_flight['impact']
         ],
         'severeImpact' => [
             'currentlyInfected'                  => (int) $severe_impact,
