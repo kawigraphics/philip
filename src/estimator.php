@@ -240,8 +240,8 @@ function dollarsInFlight($data)
 
     // Return Dollar in flights lost
     return array(
-        'impact'        => truncate($impact, 2),
-        'severe_impact' => truncate($severe_impact, 2)
+        'impact'        => $impact,
+        'severe_impact' => $severe_impact
     );
 }
 
@@ -278,7 +278,7 @@ function covid19ImpactEstimator($data)
             'hospitalBedsByRequestedTime'        => (int) $hospital_beds_by_requested_time['impact'],
             'casesForICUByRequestedTime'         => (int) $cases_for_icu_by_requested_time['impact'],
             'casesForVentilatorsByRequestedTime' => (int) $cases_for_ventilators_by_requested_time['impact'],
-            'dollarsInFlight'                    => $dollars_in_flight['impact'],
+            'dollarsInFlight'                    => truncate($dollars_in_flight['impact'], 2)
         ],
         'severeImpact' => [
             'currentlyInfected'                  => (int) $severe_impact,
@@ -287,7 +287,7 @@ function covid19ImpactEstimator($data)
             'hospitalBedsByRequestedTime'        => (int) $hospital_beds_by_requested_time['severe_impact'],
             'casesForICUByRequestedTime'         => (int) $cases_for_icu_by_requested_time['severe_impact'],
             'casesForVentilatorsByRequestedTime' => (int) $cases_for_ventilators_by_requested_time['severe_impact'],
-            'dollarsInFlight'                    => $dollars_in_flight['severe_impact'],
+            'dollarsInFlight'                    => truncate($dollars_in_flight['severe_impact'], 2)
         ],
     ];
 
