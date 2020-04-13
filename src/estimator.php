@@ -224,20 +224,6 @@ function dollarsInFlight($data)
     $impact = $impact * $avg_daily_income_population * $avg_daily_income_in_usd * $duration;
     $severe_impact = $severe_impact * $avg_daily_income_population * $avg_daily_income_in_usd * $duration;
 
-  /**
-   * Truncate a float number
-   * @param float $val Float number to be truncate
-   * @param int f Number of precision
-   * @return float
-   */
-  function truncate($val, $f)
-  {
-    if (($p = strpos($val, '.')) !== false) {
-      $val = floatval(substr($val, 0, $p + 1 + $f));
-    }
-    return $val;
-  }
-
     // Return Dollar in flights lost
     return array(
         'impact'        => $impact,
@@ -278,7 +264,7 @@ function covid19ImpactEstimator($data)
             'hospitalBedsByRequestedTime'        => (int) $hospital_beds_by_requested_time['impact'],
             'casesForICUByRequestedTime'         => (int) $cases_for_icu_by_requested_time['impact'],
             'casesForVentilatorsByRequestedTime' => (int) $cases_for_ventilators_by_requested_time['impact'],
-            'dollarsInFlight'                    => truncate($dollars_in_flight['impact'], 2)
+            'dollarsInFlight'                    => truncate($dollars_in_flight['impact']
         ],
         'severeImpact' => [
             'currentlyInfected'                  => (int) $severe_impact,
@@ -287,7 +273,7 @@ function covid19ImpactEstimator($data)
             'hospitalBedsByRequestedTime'        => (int) $hospital_beds_by_requested_time['severe_impact'],
             'casesForICUByRequestedTime'         => (int) $cases_for_icu_by_requested_time['severe_impact'],
             'casesForVentilatorsByRequestedTime' => (int) $cases_for_ventilators_by_requested_time['severe_impact'],
-            'dollarsInFlight'                    => truncate($dollars_in_flight['severe_impact'], 2)
+            'dollarsInFlight'                    => $dollars_in_flight['severe_impact']
         ],
     ];
 
