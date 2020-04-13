@@ -251,7 +251,7 @@ function dollarsInFlight($data)
 function covid19ImpactEstimator($data)
 {
     // convert input JSON string to Array
-    // $data = json_encode($data);
+    $data = json_encode($data);
     $data = json_decode($data, true);
 
     // Challenge 1
