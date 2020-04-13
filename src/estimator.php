@@ -220,9 +220,9 @@ function dollarsInFlight($data)
     $impact = infectionsByRequestedTime($data)['impact'];
     $severe_impact = infectionsByRequestedTime($data)['severe_impact'];
 
-
-    $impact = $impact * $avg_daily_income_population * $avg_daily_income_in_usd * $duration;
-    $severe_impact = $severe_impact * $avg_daily_income_population * $avg_daily_income_in_usd * $duration;
+2
+    $impact = ($impact * $avg_daily_income_population * $avg_daily_income_in_usd) / $duration;
+    $severe_impact = ($severe_impact * $avg_daily_income_population * $avg_daily_income_in_usd) / $duration;
 
     // Return Dollar in flights lost
     return array(
@@ -278,10 +278,10 @@ function covid19ImpactEstimator($data)
     ];
 
     // return the array
-    return $data;
-    // var_dump($data);
+    // return $data;
+    var_dump($data);
 }
 
 // Execute the Method
-covid19ImpactEstimator($data);
-// covid19ImpactEstimator(file_get_contents('./data.json', true));
+// covid19ImpactEstimator($data);
+covid19ImpactEstimator(file_get_contents('./data.json', true));
