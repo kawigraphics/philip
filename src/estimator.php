@@ -220,7 +220,6 @@ function dollarsInFlight($data)
     $impact = infectionsByRequestedTime($data)['impact'];
     $severe_impact = infectionsByRequestedTime($data)['severe_impact'];
 
-2
     $impact = ($impact * $avg_daily_income_population * $avg_daily_income_in_usd) / $duration;
     $severe_impact = ($severe_impact * $avg_daily_income_population * $avg_daily_income_in_usd) / $duration;
 
