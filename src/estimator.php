@@ -277,10 +277,10 @@ function covid19ImpactEstimator($data)
     ];
 
     // return the array
-    // return $data;
-    var_dump($data);
+    return $data;
+    // var_dump($data);
 }
 
 // Execute the Method
-// covid19ImpactEstimator($data);
-covid19ImpactEstimator(file_get_contents('./data.json', true));
+covid19ImpactEstimator($data);
+// covid19ImpactEstimator(file_get_contents('./data.json', true));
